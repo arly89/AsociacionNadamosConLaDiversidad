@@ -83,7 +83,16 @@ Para permitir que otros usuarios accedan al panel:
 2. Selecciona **"Invite only"** (recomendado) o **"Open"**
 3. Guarda los cambios
 
-### 4.2 Configurar Providers (Opcional)
+### 4.2 Configurar URL de Aceptación de Invitaciones
+
+**IMPORTANTE:** Configura la URL donde los usuarios aceptarán las invitaciones:
+
+1. En **"Identity"** → **"Settings"**
+2. Busca **"Confirmation URL"** o **"Accept Invite URL"**
+3. Configura: `https://tu-sitio.netlify.app/accept-invite`
+4. Guarda los cambios
+
+### 4.3 Configurar Providers (Opcional)
 
 Puedes habilitar login con GitHub, Google, etc.:
 

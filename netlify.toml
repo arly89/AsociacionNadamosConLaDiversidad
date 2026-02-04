@@ -7,3 +7,9 @@
   to = "/admin/index.html"
   status = 200
 
+# Redirect para aceptar invitaciones de Netlify Identity
+[[redirects]]
+  from = "/accept-invite"
+  to = "/accept-invite"
+  status = 200
+
