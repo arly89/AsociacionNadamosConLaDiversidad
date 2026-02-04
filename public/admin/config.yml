@@ -3,7 +3,7 @@ backend:
   repo: arly89/AsociacionNadamosConLaDiversidad
   branch: main
   auth_type: pkce
-  app_id: TU_GITHUB_OAUTH_CLIENT_ID  # ⚠️ REEMPLAZA con tu Client ID de GitHub OAuth App
+  app_id: Ov23liqpQCUYrZjykpK8
 
 site_url: https://asociacionnadamosconladiversidad.pages.dev
 
