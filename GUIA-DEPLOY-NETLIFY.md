@@ -83,16 +83,27 @@ Para permitir que otros usuarios accedan al panel:
 2. Selecciona **"Invite only"** (recomendado) o **"Open"**
 3. Guarda los cambios
 
-### 4.2 Configurar URL de Aceptación de Invitaciones
+### 4.2 Configurar URL de Aceptación de Invitaciones ⚠️ CRÍTICO
 
-**IMPORTANTE:** Configura la URL donde los usuarios aceptarán las invitaciones:
+**IMPORTANTE:** Esto es esencial para que los enlaces de invitación funcionen correctamente:
 
-1. En **"Identity"** → **"Settings"**
-2. Busca **"Confirmation URL"** o **"Accept Invite URL"**
-3. Configura: `https://tu-sitio.netlify.app/accept-invite`
-4. Guarda los cambios
+1. En **"Identity"** → **"Settings"** (o **"Email templates"**)
+2. Busca la sección **"Email templates"** o **"Invite email"**
+3. Busca **"Confirmation URL"** o **"Accept Invite URL"** o **"Invite URL"**
+4. Configura la URL completa: `https://tu-sitio.netlify.app/accept-invite`
+   - **NO uses** solo `/accept-invite` (debe ser la URL completa)
+   - **NO uses** `http://` (debe ser `https://`)
+5. Si hay un campo **"Site URL"** o **"Base URL"**, también configúralo: `https://tu-sitio.netlify.app`
+6. **Guarda los cambios**
 
-### 4.3 Configurar Providers (Opcional)
+### 4.3 Verificar Configuración de Email
+
+1. En **"Identity"** → **"Email templates"**
+2. Verifica que el template de invitación tenga el formato correcto
+3. El enlace debe ser algo como: `{{ .SiteURL }}/accept-invite?token={{ .Token }}`
+4. O directamente: `https://tu-sitio.netlify.app/accept-invite?token={{ .Token }}`
+
+### 4.4 Configurar Providers (Opcional)
 
 Puedes habilitar login con GitHub, Google, etc.:
 

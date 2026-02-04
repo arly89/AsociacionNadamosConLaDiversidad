@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-site_url: https://tu-sitio.netlify.app  # ⚠️ ACTUALIZAR con tu URL de Netlify después del despliegue
+site_url: https://nadamosconladiversidad.netlify.app  
 
 media_folder: public/images
 public_folder: /images
