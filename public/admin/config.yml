@@ -2,8 +2,9 @@ backend:
   name: github
   repo: arly89/AsociacionNadamosConLaDiversidad  # Repositorio de GitHub
   branch: main
-  # base_url se detecta automáticamente desde window.location
+  base_url: https://asociacionnadamosconladiversidad.pages.dev
   auth_type: pkce  # Usar PKCE para autenticación más segura
+  # app_id: TU_CLIENT_ID_AQUI  # Añade esto después de crear la OAuth App en GitHub
   
   # Para desarrollo local, descomenta las siguientes líneas:
   # local_backend: true

@@ -8,8 +8,21 @@
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    // Decap CMS cargará automáticamente /admin/config.yml
-    // No necesitamos inicialización manual para que funcione con GitHub PKCE
+    // Forzar que Decap CMS use GitHub directamente, no Netlify
+    window.CMS_MANUAL_INIT = true;
+    CMS.init({
+      config: {
+        backend: {
+          name: 'github',
+          repo: 'arly89/AsociacionNadamosConLaDiversidad',
+          branch: 'main',
+          base_url: 'https://asociacionnadamosconladiversidad.pages.dev',
+          auth_type: 'pkce'
+        },
+        site_url: 'https://asociacionnadamosconladiversidad.pages.dev',
+        load_config_file: true
+      }
+    });
   </script>
 </body>
 </html>
