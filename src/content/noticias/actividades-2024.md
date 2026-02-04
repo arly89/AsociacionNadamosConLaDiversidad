@@ -4,6 +4,7 @@ pubDate: 2024-02-01
 description: Anunciamos nuestro calendario de actividades acuáticas para el
   primer trimestre del año
 author: Asociación Nadamos con la Diversidad
+heroImage: /images/captura-de-pantalla-2026-02-04-124627.png
 ---
 Estamos emocionados de compartir con vosotros el calendario de actividades que hemos preparado para este año 2024.
 
