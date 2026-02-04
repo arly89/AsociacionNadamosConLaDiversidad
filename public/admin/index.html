@@ -1,29 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panel de Administración - Nadamos con la Diversidad</title>
-</head>
-<body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script>
-    // Forzar que Decap CMS use GitHub directamente, no Netlify
-    window.CMS_MANUAL_INIT = true;
-    CMS.init({
-      config: {
-        backend: {
-          name: 'github',
-          repo: 'arly89/AsociacionNadamosConLaDiversidad',
-          branch: 'main',
-          base_url: 'https://asociacionnadamosconladiversidad.pages.dev',
-          auth_type: 'pkce'
-        },
-        site_url: 'https://asociacionnadamosconladiversidad.pages.dev',
-        load_config_file: true
-      }
-    });
-  </script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </body>
 </html>
 
