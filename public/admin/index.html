@@ -6,7 +6,47 @@
     <title>Admin</title>
   </head>
   <body>
+    <script>
+      // Forzar GitHub backend ANTES de cargar Decap CMS
+      window.CMS_MANUAL_INIT = true;
+    </script>
     <script src="https://unpkg.com/decap-cms@3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // Inicializar inmediatamente después de cargar
+      if (typeof CMS !== 'undefined') {
+        CMS.init({
+          config: {
+            backend: {
+              name: 'github',
+              repo: 'arly89/AsociacionNadamosConLaDiversidad',
+              branch: 'main',
+              auth_type: 'pkce',
+              app_id: 'Ov23liqpQCUYrZjykpK8'
+            },
+            site_url: 'https://asociacionnadamosconladiversidad.pages.dev',
+            media_folder: 'public/images',
+            public_folder: '/images',
+            collections: [
+              {
+                name: 'noticias',
+                label: 'Noticias',
+                folder: 'src/content/noticias',
+                create: true,
+                slug: '{{slug}}',
+                fields: [
+                  { label: 'Título', name: 'title', widget: 'string' },
+                  { label: 'Fecha de publicación', name: 'pubDate', widget: 'datetime' },
+                  { label: 'Descripción', name: 'description', widget: 'string' },
+                  { label: 'Autor', name: 'author', widget: 'string', default: 'Asociación Nadamos con la Diversidad' },
+                  { label: 'Imagen destacada', name: 'heroImage', widget: 'image', required: false },
+                  { label: 'Cuerpo', name: 'body', widget: 'markdown' }
+                ]
+              }
+            ]
+          }
+        });
+      }
+    </script>
   </body>
 </html>
 
