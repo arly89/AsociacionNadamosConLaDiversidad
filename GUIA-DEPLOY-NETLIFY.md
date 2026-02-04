@@ -9,6 +9,7 @@
 
 ---
 
+
 ## 📝 PASO 1: Preparar el Repositorio
 
 Asegúrate de que todos los cambios estén en GitHub:
