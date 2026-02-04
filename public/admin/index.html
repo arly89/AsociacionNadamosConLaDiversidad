@@ -6,25 +6,7 @@
     <title>Admin</title>
   </head>
   <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script>
-      // Forzar que Decap CMS use GitHub directamente, no Netlify
-      if (typeof CMS !== 'undefined') {
-        CMS.init({
-          config: {
-            backend: {
-              name: 'github',
-              repo: 'arly89/AsociacionNadamosConLaDiversidad',
-              branch: 'main',
-              auth_type: 'pkce',
-              app_id: 'Ov23liqpQCUYrZjykpK8'
-            },
-            site_url: 'https://asociacionnadamosconladiversidad.pages.dev',
-            load_config_file: true
-          }
-        });
-      }
-    </script>
+    <script src="https://unpkg.com/decap-cms@3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
 
