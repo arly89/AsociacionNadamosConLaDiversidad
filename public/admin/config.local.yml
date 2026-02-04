@@ -1,0 +1,24 @@
+# Configuración para desarrollo local
+# Este archivo permite usar Decap CMS en local sin necesidad de GitHub OAuth
+# Para usarlo, renombra este archivo a config.yml temporalmente
+
+backend:
+  name: local_backend
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: "noticias"
+    label: "Noticias"
+    folder: "src/content/noticias"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha de publicación", name: "pubDate", widget: "datetime" }
+      - { label: "Descripción", name: "description", widget: "string" }
+      - { label: "Autor", name: "author", widget: "string", default: "Asociación Nadamos con la Diversidad" }
+      - { label: "Imagen destacada", name: "heroImage", widget: "image", required: false }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
+

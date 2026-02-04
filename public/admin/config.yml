@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: arly89/AsociacionNadamosConLaDiversidad  # Repositorio de GitHub
+  branch: main
+  base_url: https://your-site.pages.dev  # ⚠️ ACTUALIZAR: Cambiar por tu URL de Cloudflare Pages después del despliegue
+  auth_type: pkce  # Usar PKCE para autenticación más segura
+  
+  # Para desarrollo local, descomenta las siguientes líneas:
+  # local_backend: true
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: "noticias"
+    label: "Noticias"
+    folder: "src/content/noticias"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha de publicación", name: "pubDate", widget: "datetime" }
+      - { label: "Descripción", name: "description", widget: "string" }
+      - { label: "Autor", name: "author", widget: "string", default: "Asociación Nadamos con la Diversidad" }
+      - { label: "Imagen destacada", name: "heroImage", widget: "image", required: false }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
+

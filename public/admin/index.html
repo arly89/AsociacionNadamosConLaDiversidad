@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administración - Nadamos con la Diversidad</title>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // Cargar configuración según el entorno
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      // En local, intentar usar local_backend si está disponible
+      window.CMS_MANUAL_INIT = true;
+      CMS.init({
+        config: {
+          load_config_file: true,
+          local_backend: true
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+

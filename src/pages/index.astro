@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const noticias = await getCollection('noticias');
+const ultimasNoticias = noticias
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Inicio - Nadamos con la Diversidad">
+  <Header />
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-gray-800 to-gray-900 py-20 px-4">
+      <div class="container mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+          Nadamos con la Diversidad
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          Una asociación que promueve la inclusión y la diversidad a través de la natación
+        </p>
+        <a 
+          href="/hazte-socio" 
+          class="inline-block bg-rainbow-3 text-gray-900 font-bold px-8 py-4 rounded-lg hover:bg-rainbow-2 transition-colors text-lg"
+        >
+          Hazte socio
+        </a>
+      </div>
+    </section>
+
+    <!-- Qué hacemos -->
+    <section class="py-16 px-4 bg-gray-900">
+      <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-white">Qué hacemos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-rainbow-1">
+            <h3 class="text-2xl font-semibold mb-4 text-rainbow-1">Inclusión</h3>
+            <p class="text-gray-300">
+              Trabajamos para crear espacios acuáticos inclusivos donde todas las personas, independientemente de sus capacidades, puedan disfrutar de la natación.
+            </p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-rainbow-4">
+            <h3 class="text-2xl font-semibold mb-4 text-rainbow-4">Actividades acuáticas</h3>
+            <p class="text-gray-300">
+              Organizamos sesiones de natación, cursos de iniciación y actividades acuáticas adaptadas para todos los niveles y necesidades.
+            </p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-rainbow-7">
+            <h3 class="text-2xl font-semibold mb-4 text-rainbow-7">Comunidad y apoyo</h3>
+            <p class="text-gray-300">
+              Fomentamos un ambiente de apoyo mutuo, donde nuestros socios y socias se sienten parte de una comunidad unida y respetuosa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Últimas noticias -->
+    <section class="py-16 px-4 bg-gray-800">
+      <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-white">Últimas noticias</h2>
+        {ultimasNoticias.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {ultimasNoticias.map((noticia) => (
+              <a 
+                href={`/noticias/${noticia.slug}`}
+                class="bg-gray-900 p-6 rounded-lg hover:bg-gray-700 transition-colors block"
+              >
+                <h3 class="text-xl font-semibold mb-2 text-white">{noticia.data.title}</h3>
+                <p class="text-gray-400 text-sm mb-4">{noticia.data.description}</p>
+                <p class="text-gray-500 text-xs">
+                  {noticia.data.pubDate.toLocaleDateString('es-ES', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </p>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p class="text-center text-gray-400">Próximamente publicaremos nuestras noticias aquí.</p>
+        )}
+        <div class="text-center mt-8">
+          <a 
+            href="/noticias" 
+            class="inline-block text-rainbow-3 hover:text-rainbow-2 font-semibold transition-colors"
+          >
+            Ver todas las noticias →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+

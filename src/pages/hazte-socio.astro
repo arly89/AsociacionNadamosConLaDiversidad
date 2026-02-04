@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Hazte socio - Nadamos con la Diversidad">
+  <Header />
+  <main class="flex-grow py-16 px-4">
+    <div class="container mx-auto max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12 text-white">
+        Hazte socio
+      </h1>
+      
+      <div class="bg-gray-800 p-8 rounded-lg mb-8">
+        <h2 class="text-2xl font-semibold mb-6 text-white">Cuota anual</h2>
+        <p class="text-xl text-rainbow-3 font-bold mb-4">30€</p>
+        <p class="text-gray-300 mb-6">
+          La cuota anual de socio te da acceso a todas nuestras actividades, eventos y te convierte en parte de nuestra comunidad inclusiva.
+        </p>
+      </div>
+
+      <div class="bg-gray-800 p-8 rounded-lg mb-8">
+        <h2 class="text-2xl font-semibold mb-6 text-white">Datos para el pago</h2>
+        <div class="space-y-4 text-gray-300">
+          <div>
+            <p class="font-semibold text-white mb-1">Titular:</p>
+            <p>Asociación Nadamos con la Diversidad</p>
+          </div>
+          <div>
+            <p class="font-semibold text-white mb-1">IBAN:</p>
+            <p class="font-mono">ES12 1234 5678 9012 3456 7890</p>
+          </div>
+          <div>
+            <p class="font-semibold text-white mb-1">Concepto:</p>
+            <p>Cuota socio + [tu nombre]</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-800 p-8 rounded-lg">
+        <h2 class="text-2xl font-semibold mb-6 text-white">Formulario de solicitud</h2>
+        <form 
+          action={`mailto:contacto@nadamosdiversidad.org?subject=Solicitud de alta como socio&body=Hola,%0D%0A%0D%0ADeseo hacerme socio/a de la Asociación Nadamos con la Diversidad.%0D%0A%0D%0AMis datos:%0D%0ANombre:%0D%0AEmail:%0D%0ATeléfono:%0D%0A%0D%0AHe realizado el pago de la cuota anual de 30€ por transferencia bancaria.%0D%0A%0D%0AUn saludo`}
+          method="get"
+          class="space-y-6"
+        >
+          <div>
+            <label for="nombre" class="block text-white font-semibold mb-2">Nombre completo *</label>
+            <input 
+              type="text" 
+              id="nombre" 
+              name="nombre" 
+              required
+              class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-rainbow-3"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-white font-semibold mb-2">Email *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required
+              class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-rainbow-3"
+            />
+          </div>
+          <div>
+            <label for="telefono" class="block text-white font-semibold mb-2">Teléfono</label>
+            <input 
+              type="tel" 
+              id="telefono" 
+              name="telefono"
+              class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-rainbow-3"
+            />
+          </div>
+          <div>
+            <label for="mensaje" class="block text-white font-semibold mb-2">Mensaje adicional (opcional)</label>
+            <textarea 
+              id="mensaje" 
+              name="mensaje" 
+              rows="4"
+              class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-rainbow-3"
+            ></textarea>
+          </div>
+          <button 
+            type="submit"
+            class="w-full bg-rainbow-3 text-gray-900 font-bold px-8 py-4 rounded-lg hover:bg-rainbow-2 transition-colors text-lg"
+          >
+            Enviar solicitud
+          </button>
+        </form>
+        <p class="text-gray-400 text-sm mt-4 text-center">
+          Tu solicitud será revisada y confirmada por email.
+        </p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+

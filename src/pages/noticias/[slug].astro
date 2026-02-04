@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const noticias = await getCollection('noticias');
+  return noticias.map((noticia) => ({
+    params: { slug: noticia.slug },
+    props: { noticia },
+  }));
+}
+
+const { noticia } = Astro.props;
+const { Content } = await noticia.render();
+---
+
+<BaseLayout title={`${noticia.data.title} - Nadamos con la Diversidad`}>
+  <Header />
+  <main class="flex-grow py-16 px-4">
+    <article class="container mx-auto max-w-4xl">
+      <a 
+        href="/noticias" 
+        class="inline-block text-rainbow-3 hover:text-rainbow-2 mb-6 transition-colors"
+      >
+        ← Volver a noticias
+      </a>
+      
+      <header class="mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+          {noticia.data.title}
+        </h1>
+        <div class="flex flex-wrap gap-4 text-gray-400 text-sm mb-6">
+          <span>Por {noticia.data.author}</span>
+          <span>•</span>
+          <time>
+            {noticia.data.pubDate.toLocaleDateString('es-ES', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            })}
+          </time>
+        </div>
+        {noticia.data.heroImage && (
+          <img 
+            src={noticia.data.heroImage} 
+            alt={noticia.data.title}
+            class="w-full h-64 md:h-96 object-cover rounded-lg"
+          />
+        )}
+      </header>
+      
+      <div class="prose prose-invert prose-lg max-w-none bg-gray-800 p-8 rounded-lg">
+        <Content />
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .prose {
+    color: rgb(209 213 219);
+  }
+  .prose h2 {
+    color: rgb(255 255 255);
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .prose h3 {
+    color: rgb(255 255 255);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose p {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+  }
+  .prose a {
+    color: rgb(255 255 0);
+    text-decoration: underline;
+  }
+  .prose a:hover {
+    color: rgb(255 191 0);
+  }
+  .prose ul, .prose ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+  .prose strong {
+    color: rgb(255 255 255);
+    font-weight: 600;
+  }
+  .prose img {
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+  }
+</style>
+

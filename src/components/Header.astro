@@ -1,0 +1,64 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-gray-800 border-b-4 border-rainbow-1">
+  <nav class="container mx-auto px-4 py-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-white mb-4 md:mb-0 hover:text-rainbow-3 transition-colors">
+        Nadamos con la Diversidad
+      </a>
+      <ul class="flex flex-wrap gap-4 md:gap-6 text-sm md:text-base">
+        <li>
+          <a 
+            href="/" 
+            class={`hover:text-rainbow-3 transition-colors ${currentPath === '/' ? 'text-rainbow-3 font-semibold' : ''}`}
+          >
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/quienes-somos" 
+            class={`hover:text-rainbow-3 transition-colors ${currentPath === '/quienes-somos' ? 'text-rainbow-3 font-semibold' : ''}`}
+          >
+            Quiénes somos
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/hazte-socio" 
+            class={`hover:text-rainbow-3 transition-colors ${currentPath === '/hazte-socio' ? 'text-rainbow-3 font-semibold' : ''}`}
+          >
+            Hazte socio
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/noticias" 
+            class={`hover:text-rainbow-3 transition-colors ${currentPath.startsWith('/noticias') ? 'text-rainbow-3 font-semibold' : ''}`}
+          >
+            Noticias
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/estatutos" 
+            class={`hover:text-rainbow-3 transition-colors ${currentPath === '/estatutos' ? 'text-rainbow-3 font-semibold' : ''}`}
+          >
+            Estatutos
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/contacto" 
+            class={`hover:text-rainbow-3 transition-colors ${currentPath === '/contacto' ? 'text-rainbow-3 font-semibold' : ''}`}
+          >
+            Contacto
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+

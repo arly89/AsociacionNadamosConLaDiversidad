@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const noticias = await getCollection('noticias');
+const noticiasOrdenadas = noticias.sort((a, b) => 
+  b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+---
+
+<BaseLayout title="Noticias - Nadamos con la Diversidad">
+  <Header />
+  <main class="flex-grow py-16 px-4">
+    <div class="container mx-auto max-w-6xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12 text-white">
+        Noticias
+      </h1>
+      
+      {noticiasOrdenadas.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {noticiasOrdenadas.map((noticia) => (
+            <a 
+              href={`/noticias/${noticia.slug}`}
+              class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors block"
+            >
+              {noticia.data.heroImage && (
+                <img 
+                  src={noticia.data.heroImage} 
+                  alt={noticia.data.title}
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+              )}
+              <h2 class="text-2xl font-semibold mb-3 text-white">{noticia.data.title}</h2>
+              <p class="text-gray-400 mb-4">{noticia.data.description}</p>
+              <div class="flex justify-between items-center text-sm text-gray-500">
+                <span>{noticia.data.author}</span>
+                <span>
+                  {noticia.data.pubDate.toLocaleDateString('es-ES', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <p class="text-gray-400 text-lg">Aún no hay noticias publicadas.</p>
+          <p class="text-gray-500 mt-2">Próximamente compartiremos nuestras novedades aquí.</p>
+        </div>
+      )}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+

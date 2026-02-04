@@ -1,0 +1,24 @@
+# Configuración alternativa para usar con Netlify (Git Gateway)
+# Renombra este archivo a config.yml si usas Netlify en lugar de Cloudflare Pages
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: "noticias"
+    label: "Noticias"
+    folder: "src/content/noticias"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha de publicación", name: "pubDate", widget: "datetime" }
+      - { label: "Descripción", name: "description", widget: "string" }
+      - { label: "Autor", name: "author", widget: "string", default: "Asociación Nadamos con la Diversidad" }
+      - { label: "Imagen destacada", name: "heroImage", widget: "image", required: false }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
+
