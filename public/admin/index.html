@@ -7,6 +7,16 @@
 
     <!-- Necesario para Netlify Identity (login + signup) -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      (function () {
+        const h = window.location.hash || "";
+        // Tokens típicos de Netlify Identity
+        if (h.includes("confirmation_token") || h.includes("invite_token") || h.includes("recovery_token")) {
+          window.location.replace("/admin/" + h);
+        }
+      })();
+    </script>
+    
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
