@@ -1,11 +1,8 @@
 backend:
-  name: github
-  repo: arly89/AsociacionNadamosConLaDiversidad
+  name: git-gateway
   branch: main
-  auth_type: pkce
-  app_id: Ov23liqpQCUYrZjykpK8
 
-site_url: https://asociacionnadamosconladiversidad.pages.dev
+site_url: https://tu-sitio.netlify.app  # ⚠️ ACTUALIZAR con tu URL de Netlify después del despliegue
 
 media_folder: public/images
 public_folder: /images
