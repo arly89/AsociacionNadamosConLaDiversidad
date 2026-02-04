@@ -8,20 +8,8 @@
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    // Cargar configuración según el entorno
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      // En local, intentar usar local_backend si está disponible
-      window.CMS_MANUAL_INIT = true;
-      CMS.init({
-        config: {
-          load_config_file: true,
-          local_backend: true
-        }
-      });
-    } else {
-      // En producción, cargar configuración automáticamente desde config.yml
-      // Decap CMS cargará automáticamente /admin/config.yml
-    }
+    // Decap CMS cargará automáticamente /admin/config.yml
+    // No necesitamos inicialización manual para que funcione con GitHub PKCE
   </script>
 </body>
 </html>

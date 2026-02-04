@@ -2,12 +2,13 @@ backend:
   name: github
   repo: arly89/AsociacionNadamosConLaDiversidad  # Repositorio de GitHub
   branch: main
-  base_url: https://asociacionnadamosconladiversidad.pages.dev
+  # base_url se detecta automáticamente desde window.location
   auth_type: pkce  # Usar PKCE para autenticación más segura
-  # Para PKCE, no necesitas Client ID/Secret, pero la OAuth App en GitHub ayuda
   
   # Para desarrollo local, descomenta las siguientes líneas:
   # local_backend: true
+
+site_url: https://asociacionnadamosconladiversidad.pages.dev
 
 media_folder: public/images
 public_folder: /images
