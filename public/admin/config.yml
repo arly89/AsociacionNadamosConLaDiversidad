@@ -2,7 +2,7 @@ backend:
   name: github
   repo: arly89/AsociacionNadamosConLaDiversidad  # Repositorio de GitHub
   branch: main
-  base_url: asociacionnadamosconladiversidad.pages.dev
+  base_url: https://asociacionnadamosconladiversidad.pages.dev
   auth_type: pkce  # Usar PKCE para autenticación más segura
   
   # Para desarrollo local, descomenta las siguientes líneas:
